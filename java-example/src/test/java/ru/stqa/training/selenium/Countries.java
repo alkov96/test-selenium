@@ -60,5 +60,23 @@ public class Countries {
             zones = driver.findElements(By.xpath("//table[@class='dataTable']//tr/td[position()=6 and normalize-space(text())!='0']"));
             System.out.println("Список отсортирован по алфавиту");
         }
+
+        driver.get("http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones");
+        List<WebElement> geozones = driver.findElements(By.xpath("//table[@class='dataTable']//tr/td[3]/a"));
+        for (int geozone =0; geozone<geozones.size();geozone++) {
+            geozones.get(geozone).click();
+            List<WebElement> zoneingeozone = driver.findElements(By.xpath("//table[@class='dataTable']//tr/td[3]"));
+            List<String> newzoneingeo = new ArrayList<>();
+            zoneingeozone.forEach(element -> newzoneingeo.add(element.getText()));
+            List<String> newnewzoneingeo = new ArrayList<>();
+            zoneingeozone.forEach(element -> newnewzoneingeo.add(element.getText()));
+            Collections.sort(newzoneingeo);
+            newzoneingeo.equals(newnewzoneingeo);
+            driver.findElement(By.xpath("//li[@class='selected']")).click();
+
+            Thread.sleep(500);
+            geozones = driver.findElements(By.xpath("//table[@class='dataTable']//tr/td[3]/a"));
+            System.out.println("Зоны отсортирвоаны");
+        }
        }
     }
