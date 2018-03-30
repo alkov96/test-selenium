@@ -65,7 +65,7 @@ public class Countries {
         List<WebElement> geozones = driver.findElements(By.xpath("//table[@class='dataTable']//tr/td[3]/a"));
         for (int geozone =0; geozone<geozones.size();geozone++) {
             geozones.get(geozone).click();
-            List<WebElement> zoneingeozone = driver.findElements(By.xpath("//table[@class='dataTable']//tr/td[3]"));
+            List<WebElement> zoneingeozone = driver.findElements(By.xpath("//table[@class='dataTable']//tr/td[3]/select//option[@selected='selected']"));
             List<String> newzoneingeo = new ArrayList<>();
             zoneingeozone.forEach(element -> newzoneingeo.add(element.getText()));
             List<String> newnewzoneingeo = new ArrayList<>();
