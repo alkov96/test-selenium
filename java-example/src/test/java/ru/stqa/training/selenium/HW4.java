@@ -31,7 +31,7 @@ public class HW4 {
     public void MyT3() throws Exception {
         driver.get("http://localhost/litecart/en/");
         Thread.sleep(500);
-        List<WebElement> allUtkas = driver.findElements(By.xpath("//li[@class='product column shadow hover-light']"));//список всех уток
+        List<WebElement> allUtkas = driver.findElements(By.className("product"));//список всех уток
         for (WebElement utka : allUtkas) {
             List<WebElement> stickers = utka.findElements(By.xpath("a/div/div"));
 
